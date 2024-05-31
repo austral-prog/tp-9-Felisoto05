@@ -10,17 +10,17 @@ def add_items(inventory, items):
     set_items=set(items)
     for m in set_items:
         v=items.count(m)
-        if n in inventory:
-        inventory[m]= inventory[m]+v 
-    else:
-        inventory[m]=v
+        if m in inventory:
+            inventory[m]= inventory[m]+v 
+        else:
+            inventory[m]=v
     return inventory
 
 def decrement_items(inventory, items):
     set_items=set(items)
     for m in set_items:
         v=items.count(m)
-        if m<v:
+        if inventory[m]<v:
             inventory[m]=0
         else:
             inventory[m]=inventory[m]- v
@@ -37,3 +37,4 @@ def list_inventory(inventory):
         if v>0:
             elemento=(k,v)
             lista.append(elemento)
+    return lista
